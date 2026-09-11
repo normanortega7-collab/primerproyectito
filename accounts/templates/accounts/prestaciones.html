@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Prestaciones</title>
+</head>
+<body>
+
+    <a href="{% url 'crear_prestacion' %}">
+    Registrar nueva prestación
+</a>
+
+<br><br>
+    <h1>Lista de prestaciones</h1>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Libro</th>
+                <th>Fecha de préstamo</th>
+                <th>Fecha de salida</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for prestacion in prestaciones %}
+                <tr>
+                    <td>{{ prestacion.pre_id }}</td>
+                    <td>{{ prestacion.pre_lib.lib_titulo }}</td>
+                    <td>{{ prestacion.pre_fechaprest }}</td>
+                    <td>{{ prestacion.pre_fechasalida }}</td>
+                </tr>
+            {% empty %}
+                <tr>
+                    <td colspan="4">
+                        No hay prestaciones registradas.
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <br>
+
+    <a href="{% url 'home' %}">
+        Volver
+    </a>
+
+</body>
+</html>

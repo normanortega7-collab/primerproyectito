@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Géneros</title>
+</head>
+<body>
+
+    <h1>Lista de géneros</h1>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Descripción</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for genero in generos %}
+                <tr>
+                    <td>{{ genero.gen_id }}</td>
+                    <td>{{ genero.gen_descripcion }}</td>
+                </tr>
+            {% empty %}
+                <tr>
+                    <td colspan="2">
+                        No hay géneros registrados.
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <br>
+
+    <a href="{% url 'home' %}">
+        Volver
+    </a>
+
+</body>
+</html>

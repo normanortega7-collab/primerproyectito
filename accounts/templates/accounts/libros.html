@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Libros</title>
+</head>
+<body>
+
+    <h1>Lista de libros</h1>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Título</th>
+                <th>Autor</th>
+                <th>Año</th>
+                <th>Cantidad</th>
+                <th>Género</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for libro in libros %}
+                <tr>
+                    <td>{{ libro.lib_id }}</td>
+                    <td>{{ libro.lib_titulo }}</td>
+                    <td>{{ libro.lib_autor }}</td>
+                    <td>{{ libro.lib_anio }}</td>
+                    <td>{{ libro.lib_cantidad }}</td>
+                    <td>{{ libro.lib_gen.gen_descripcion }}</td>
+                </tr>
+            {% empty %}
+                <tr>
+                    <td colspan="6">
+                        No hay libros registrados.
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <br>
+
+    <a href="{% url 'home' %}">
+        Volver
+    </a>
+
+</body>
+</html>

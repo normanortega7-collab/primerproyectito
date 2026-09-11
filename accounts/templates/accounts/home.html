@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Inicio</title>
+</head>
+<body>
+
+<h1>Bienvenido {{ request.user.username }}</h1>
+
+<ul>
+    <li>
+        <a href="{% url 'libros' %}">
+            Ver libros
+        </a>
+    </li>
+
+    <li>
+        <a href="{% url 'prestaciones' %}">
+            Ver prestaciones
+        </a>
+    </li>
+
+    <li>
+        <a href="{% url 'crear_prestacion' %}">
+            Registrar prestación
+        </a>
+    </li>
+
+    <li>
+        <a href="{% url 'crear_devolucion' %}">
+            Devolver libros
+        </a>
+    </li>
+
+    <li>
+        <a href="{% url 'generos' %}">
+            Ver géneros
+        </a>
+    </li>
+</ul>
+
+<a href="{% url 'logout' %}">Cerrar sesión</a>
+
+</body>
+</html>
